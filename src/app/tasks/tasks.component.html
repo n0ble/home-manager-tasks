@@ -1,0 +1,39 @@
+<h2>All Tasks</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Subject</th>
+        <th>Priority</th>
+        <th>Severity</th>
+        <th>Assignee</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks"
+    [class.selected]="task === selectedTask"
+    (click)="onSelect(task)">
+      <td>{{task.id}}</td>
+    <td>{{task.subject}}</td>
+    <td>{{Priority[task.priority]}}</td>
+    <td>{{Severity[task.severity]}}</td>
+    <td>{{task.assignee}}</td>
+    </tr>
+     
+    </tbody>
+  </table>
+</div>
+
+
+<div *ngIf="selectedTask">
+
+  <h2>{{ selectedTask.subject | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedTask.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedTask.subject" placeholder="subject">
+    </label>
+  </div>
+
+</div>
