@@ -1,3 +1,11 @@
-<p>
-  task-detail works!
-</p>
+<div *ngIf="task">
+
+  <h2>{{ task.subject | uppercase }} Details</h2>
+  <div><span>id: </span>{{task.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="task.subject" placeholder="subject">
+    </label>
+  </div>
+
+</div>

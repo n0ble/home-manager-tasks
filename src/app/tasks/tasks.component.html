@@ -25,15 +25,5 @@
   </table>
 </div>
 
+<hm-task-detail [task]="selectedTask"></hm-task-detail>
 
-<div *ngIf="selectedTask">
-
-  <h2>{{ selectedTask.subject | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedTask.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedTask.subject" placeholder="subject">
-    </label>
-  </div>
-
-</div>
