@@ -8,6 +8,10 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TaskService } from './services/task.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +24,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
-  providers: [],
+  providers: [TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

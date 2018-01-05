@@ -13,26 +13,32 @@
     </thead>
     <tbody>
       <tr *ngFor="let task of tasks" [class.selected]="task === selectedTask" (click)="onSelect(task)">
-        <td>{{task.id}}</td>
-        <td>{{task.subject}}</td>
+        <td>
+          <a routerLink="/task/{{task.id}}">
+            <span>{{task.id}}</span>
+          </a>
+        </td>
+        <td>
+            <a routerLink="/task/{{task.id}}">
+              <span>{{task.subject}}</span>
+            </a>
+          </td>
         <td>{{Priority[task.priority]}}</td>
         <td>{{Severity[task.severity]}}</td>
         <td>{{task.assignee}}</td>
         <td>
-            <button type="button" class="btn btn-info .btn-xs" title="edit task" (click)="edit(task)">
-                <i class="fa fa-edit"></i>
-              </button>
+          <button type="button" class="btn btn-info .btn-xs" title="edit task" (click)="edit(task)">
+            <i class="fa fa-edit"></i>
+          </button>
           <button type="button" class="btn btn-danger .btn-xs" title="delete task" (click)="delete(task)">
             <i class="fa fa-remove"></i>
           </button>
           <button type="button" class="btn btn-success .btn-xs" title="complete task" (click)="complete(task)">
-              <i class="fa fa-check"></i>
-            </button>
+            <i class="fa fa-check"></i>
+          </button>
         </td>
       </tr>
 
     </tbody>
   </table>
 </div>
-
-<hm-task-detail [task]="selectedTask"></hm-task-detail>

@@ -1,11 +1,20 @@
 <div *ngIf="task">
 
   <h2>{{ task.subject | uppercase }} Details</h2>
-  <div><span>id: </span>{{task.id}}</div>
+  <div>
+    <span>id: </span>{{task.id}}</div>
   <div>
     <label>name:
       <input [(ngModel)]="task.subject" placeholder="subject">
     </label>
   </div>
 
+  <button type="button" class="btn btn-primary" title="save task" (click)="save()">
+    Save
+    <i class="fa fa-save"></i>
+  </button>
+  <button type="button" class="btn btn-default" title="go back" (click)="goBack()">
+    Back
+    <i class="fa fa-back"></i>
+  </button>
 </div>
